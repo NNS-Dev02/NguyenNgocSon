@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Plane Global</title>
+		<meta name="description" content="Demo of the game: The Making of 'The Aviator': Animating a Basic 3D Scene with Three.js" />
+		<meta name="keywords" content="three.js, webgl, tutorial, game, 3d, animation, airplane, web development, javascript" />
+		<meta name="author" content="Karim Maaloul for Codrops" />
+		<!-- Icon WEBSITE -->
+		<link rel="shortcut icon" href="../assets/images/LogoMiniWebSite.png" type="image/x-icon">
+		<!-- Font Icon -->
+		<script src="https://kit.fontawesome.com/2e37e3d119.js" crossorigin="anonymous"></script>
+		<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="assets/css/PlaneGlobal/demo.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/PlaneGlobal/game.css" />
+		<script type="text/javascript" src="assets/js/PlaneGlobal/TweenMax.min.js"></script>
+		<script type="text/javascript" src="assets/js/PlaneGlobal/three.min.js"></script>
+		<script type="text/javascript" src="assets/js/PlaneGlobal/game.js" ></script>
+		<!--[if IE]>
+		  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<style>
+			.backMenu{
+			position: absolute;
+			left: 20px;
+			top: 20px;
+			display: block;
+			padding: 1em 1.35em;
+			border: 1px solid #d1b790;
+			  }
+		  </style>
+	</head>
+	<body>
+		<div class="game-holder" id="gameHolder">
+			<div class="header">
+				<h1><span>NNS-Dev02</span>Plane Global</h1>
+				<h2>Trò chơi được phát triển bởi Nguyễn Ngọc Sơn</h2>
+				<div class="score" id="score">
+					<div class="score__content" id="level">
+						<div class="score__label">Cấp độ</div>
+						<div class="score__value score__value--level" id="levelValue">1</div>
+						<svg class="level-circle" id="levelCircle" viewbox="0 0 200 200">
+							<circle id="levelCircleBgr" r="80" cx="100" cy="100" fill="none" stroke="#d1b790" stroke-width="24px" />
+							<circle id="levelCircleStroke" r="80" cx="100" cy="100" fill="none" #f25346 stroke="#68c3c0" stroke-width="14px" stroke-dasharray="502" />
+						</svg>
+					</div>
+					<div class="score__content" id="dist">
+						<div class="score__label">Khoảng cách đi được</div>
+						<div class="score__value score__value--dist" id="distValue">000</div>
+					</div>
+					<div class="score__content" id="energy">
+						<div class="score__label">Năng lượng</div>
+						<div class="score__value score__value--energy" id="energyValue">
+							<div class="energy-bar" id="energyBar"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="world" id="world"></div>
+			<div class="message message--replay" id="replayMessage">Nhấp chuột để chơi lại</div>
+			<div class="message message--instructions" id="instructions">
+				Di chuyển con trỏ chuột để điều khiển máy bay
+				<span>Lấy những viên kim cương xanh và tránh những viên đá đỏ</span></div>
+		</div>
+		<a href="menu.html" class="backMenu" title="Quay lại Menu Game">Quay lại&ensp;<i class="fa-solid fa-circle-arrow-left"></i></a>
+
+	</body>
+</html>
