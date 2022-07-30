@@ -471,7 +471,7 @@
         document.body.style.backgroundColor = "rgb(" + rndRGB() + "," + rndRGB() + "," + rndRGB() + ")";
       }
   
-      document.getElementsByTagName('h1')[0].innerHTML = "CONGRATULATIONS!!! You Win!!!"
+      document.getElementsByTagName('h1')[0].innerHTML = "XIN CHÚC MỪNG !!! BẠN ĐÃ CHIẾN THẮNG!!!"
   
       var pleaseStop = window.setInterval(yayIWon, 500);
       window.setTimeout(function() {
