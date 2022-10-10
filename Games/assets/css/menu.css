@@ -40,7 +40,7 @@ body {
   }
   
   .GhostPong, .RanSanMoi, .XepGach, .menu, .Sudoku,  .CoCaro,  .Game2048,
-  .FlappyDino, .PlaneGlobal,  .BaoVeMatTroi, .Update4, .Update5, .Update6
+  .FlappyDino, .PlaneGlobal,  .TowerBuilder, .Update4, .Update5, .Update6
   {
     width: 150px;
     height: 100px;
@@ -69,7 +69,7 @@ body {
   }
 
   .GhostPong:hover, .RanSanMoi:hover, .XepGach:hover, .Sudoku:hover,  .CoCaro:hover,  .Game2048:hover,
-  .FlappyDino:hover, .PlaneGlobal:hover,  .BaoVeMatTroi:hover, .Update4:hover, .Update5:hover, .Update6:hover
+  .FlappyDino:hover, .PlaneGlobal:hover,  .TowerBuilder:hover, .Update4:hover, .Update5:hover, .Update6:hover
   {
     box-shadow: 0 0 30px 10px rgba(100, 100, 255, 0.6);
     background-color: transparent;
@@ -118,9 +118,9 @@ body {
     background-size: cover;
   }
   
-  .BaoVeMatTroi {
+  .TowerBuilder {
     transform: translateX(-50px) translateZ(-50px) rotateY(-5deg);
-    background-image: url(../images/BaoVeMatTroi.jpg);
+    background-image: url(../images/TowerBuilder.jpg);
     background-size: cover;
   }
   
