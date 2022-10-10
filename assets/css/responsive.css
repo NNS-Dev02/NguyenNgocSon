@@ -182,18 +182,18 @@
 }
 
 .product-card .product-info h1 {
-	font-size: 18px;
+	font-size: 11px;
 	;
 }
 
 .product-card .product-info p {
 	letter-spacing: 0;
-	font-size: 8px;
+	font-size: 7px;
 	;
 }
 
 .product-card .product-info button {
-	padding: 2px;
+	padding: 4px;
 	;
 }
 
@@ -203,17 +203,12 @@
 	;
 }
 
-.product-card:hover .product-info {
-    opacity: 1;
-    transform: translateY(10px) !important;
-}
-
 /* ---Subscribe--- */
 
 				
 	#subscribe {
 	height: 80vh !important;
-	margin-top: 150px;
+	margin-top: 200px;
 	width: 98%;
 	;
 }
@@ -281,6 +276,12 @@ input.u-align-center {
 	font-weight: 600;
 	;
 }
+.LogoContact{
+	width: 100%;
+	background-size: cover;
+}
+	
+
 }
 
 /* --------------------------------------------------Tablet-------------------------------------------------- */

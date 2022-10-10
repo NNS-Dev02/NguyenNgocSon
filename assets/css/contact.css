@@ -8287,9 +8287,8 @@ textarea.form-control {
   font-family: GochiHand;}
 
 .contactForm .form-control {
-  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0; }
+  padding: 5px; }
 
 #contactForm .error {
   color: red;
@@ -8322,3 +8321,7 @@ textarea.form-control {
   font-weight: bold; }
 
 .drawer-list li a {margin-top: -15px;}
+
+.LogoContact{
+  width: 68.6%; 
+  background-size: cover;}
