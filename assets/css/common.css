@@ -1,0 +1,33 @@
+@font-face {
+	font-family: GochiHand;
+	src: url('../fonts/GochiHand-Regular.ttf') format('truetype'), url('../fonts/Captureit.eot#iefix') format('embedded-opentype'), url('../fonts/Captureit.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	;
+}
+
+body {
+	padding: 0 !important;
+	margin: 0 !important;
+	;
+}
+
+.left {
+	float: left;
+	;
+}
+
+.right {
+	float: right;
+	;
+}
+
+.center {
+	text-align: center;
+	;
+}
+
+.fixClear {
+	clear: both;
+	;
+}
