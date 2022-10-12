@@ -247,7 +247,7 @@ class Snake {
         this.history[i] = this.history[i + 1];
       }
       this.pos.add(this.dir);
-      this.delay = 5; //-- Tốc độ của Rắn --//
+      this.delay = 3; //-- Tốc độ của Rắn --//
       this.total > 3 ? this.selfCollision() : null;
     }
   }
@@ -321,7 +321,7 @@ class Particle {
 
 function incrementScore() {
   score++;
-  dom_score.innerText = score.toString().padStart(2, "0");
+  dom_score.innerText = score.toString().padStart(1, "0");
 }
 
 function particleSplash() {
@@ -378,8 +378,8 @@ function gameOver() {
 }
 
 function reset() {
-  dom_score.innerText = "00";
-  score = "00";
+  dom_score.innerText = "0";
+  score = "0";
   snake = new Snake();
   food.spawn();
   KEY.resetState();

@@ -162,7 +162,7 @@ function Scoreboard() {
 }
 
 function Player() {
-  this.paddle = new Paddle(30, (height/2) - 25, 20, 80);
+  this.paddle = new Paddle(30, (height/2) - 25, 20, 100);
 
   this.update = function() {
     this.paddle.xspeed = 0;
@@ -189,7 +189,7 @@ function Player() {
 }
 
 function Computer() {
-  this.paddle = new Paddle(width - 50, (height/2) - 25, 20, 80);
+  this.paddle = new Paddle(width - 50, (height/2) - 25, 20, 200); //this.paddle = new Paddle(width - 50, (height/2) - 25, 20, 80);//
 
   this.move = function(x, y) {
     this.paddle.x += x;
