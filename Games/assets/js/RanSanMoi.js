@@ -9,17 +9,17 @@ let dom_canvas = document.createElement("canvas");
 document.querySelector("#canvas").appendChild(dom_canvas);
 let CTX = dom_canvas.getContext("2d");
 
-const W = (dom_canvas.width = 600); //-Chiều rộng-//
-const H = (dom_canvas.height = 600); //-Chiều dài-//
+const W = (dom_canvas.width = 700); //-Chiều rộng-//
+const H = (dom_canvas.height = 700); //-Chiều dài-//
 
 let snake,
   food,
   currentHue,
-  cells = 20, //-Phải chia hết cho 2-//
+  cells = 70, //-Phải chia hết cho 2-//
   cellSize,
   isGameOver = false,
   tails = [],
-  score = 00,
+  score = 0,
   maxScore = window.localStorage.getItem("maxScore") || undefined,
   particles = [],
   splashingParticleCount = 20,
@@ -63,7 +63,7 @@ let helpers = {
     CTX.lineWidth = 1.1;
     CTX.strokeStyle = "#232332";
     CTX.shadowBlur = 0;
-    for (let i = 1; i < cells; i++) {
+    for (let i = 100; i < cells; i++) {
       let f = (W / cells) * i;
       CTX.beginPath();
       CTX.moveTo(f, 0);

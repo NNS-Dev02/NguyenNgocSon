@@ -42,9 +42,9 @@ function draw() {
 
     player.update();
     if (keyIsDown(UP_ARROW)) {
-      player.move(0, -5);
+      player.move(0, -10);
     } else if (keyIsDown(DOWN_ARROW)) {
-      player.move(0, 5);
+      player.move(0, 10);
     }
 
     player.show();
@@ -58,8 +58,8 @@ function draw() {
     }
     computer.show();
 
-    text("Bạn 😁     " + "[" + scoreboard.playerScore + " / 5]", width/2 - 390, 40);
-    text("AI 🤖     " + "[" + scoreboard.computerScore + " / 5]", width/2 + 180, 40);
+    text("Bạn 😉" , width/2 - 340, 40);
+    text("AI 🤖", width/2 + 240, 40);
 
     for (var i = sparks.length - 1; i >= 0; i--) {
       sparks[i].update();
@@ -74,8 +74,8 @@ function draw() {
       noStroke();
       rect(0, 0, width, height);
       fill(255);
-      var result = scoreboard.playerScore > scoreboard.computerScore ? "Bạn đã thắng! 😎" : "Thua mất rồi! 😭 ";
-      text(result + "Tỉ số " + scoreboard.playerScore + " : " + scoreboard.computerScore , width/2 - 200, height/2 - 40);
+      var result = scoreboard.computerScore > scoreboard.playerScore ? "Chơi để xã stress hong được quạo =))" : "   Ghê zậy chời, thắng luôn kìa =))";
+      text(result, width/2 - 265, height/2 - 40);
       text("Vui lòng nhấn phím SPACE để chơi lại.", width/2 - 280, height/2);
     } else {
       if (!goalWaitPeriod) {
@@ -144,7 +144,7 @@ function Scoreboard() {
   this.computerScore = 0;
   
   this.gameOver = function() {
-    return this.playerScore === 5 || this.computerScore === 5;
+    return this.playerScore === 1 || this.computerScore === 1;
   }
   
   this.resetScore = function() {
@@ -229,7 +229,7 @@ function Computer() {
 function Ball(x, y) {
   this.x = x;
   this.y = y;
-  this.xspeed = -6;
+  this.xspeed = -4;
   this.yspeed = random(-1, 1);
   this.vel = createVector(this.xspeed, this.yspeed);
   this.radius = 40;
@@ -290,7 +290,7 @@ function Ball(x, y) {
      
     if (this.y + this.radius/2 >= paddle2.y && this.y - this.radius/2 <= paddle2.y + paddle2.height && this.x + this.radius/2 >= paddle2.x) {
       isCompForcePush = true;
-      this.xspeed = -10;
+      this.xspeed = -20;
       // hit the computer's paddle
       this.yspeed += (paddle2.yspeed / 2);
       this.x += this.xspeed;
