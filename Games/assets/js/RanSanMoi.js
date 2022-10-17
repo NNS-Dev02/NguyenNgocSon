@@ -9,13 +9,13 @@ let dom_canvas = document.createElement("canvas");
 document.querySelector("#canvas").appendChild(dom_canvas);
 let CTX = dom_canvas.getContext("2d");
 
-const W = (dom_canvas.width = 700); //-Chiều rộng-//
-const H = (dom_canvas.height = 700); //-Chiều dài-//
+const W = (dom_canvas.width = 600); //-Chiều rộng-//
+const H = (dom_canvas.height = 600); //-Chiều dài-//
 
 let snake,
   food,
   currentHue,
-  cells = 70, //-Phải chia hết cho 2-//
+  cells = 60, //-Phải chia hết cho 2-//
   cellSize,
   isGameOver = false,
   tails = [],
@@ -247,7 +247,7 @@ class Snake {
         this.history[i] = this.history[i + 1];
       }
       this.pos.add(this.dir);
-      this.delay = 3; //-- Tốc độ của Rắn --//
+      this.delay = 2; //-- Tốc độ của Rắn --//
       this.total > 3 ? this.selfCollision() : null;
     }
   }
