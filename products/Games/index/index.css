@@ -208,4 +208,8 @@ h2:after {
 @media screen and (max-width: 1477px) {
   .hide_mobile{display: none !important;}
   .show_mobile{display: block !important;}
+  .df, .cards, .news {
+    display: flex !important;
+    justify-content: space-around !important;
+}
 }
