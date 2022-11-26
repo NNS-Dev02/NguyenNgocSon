@@ -77,7 +77,7 @@ bkcore.hexgl.Gameplay = function(opts)
 				self.hud != null && self.hud.updateLap(self.lap, self.maxLaps);
 
 				if(self.lap == self.maxLaps)
-					self.hud != null && self.hud.display("Final lap", 0.5);
+					self.hud != null && self.hud.display("Vòng Cuối Cùng", 0.5);
 			}
 		}
 		else if(cp != -1 && cp != self.previousCheckPoint)
@@ -166,12 +166,12 @@ bkcore.hexgl.Gameplay.prototype.end = function(result)
 
 	if(result == this.results.FINISH)
 	{
-		if(this.hud != null) this.hud.display("Finish");
+		if(this.hud != null) this.hud.display("Hoàn Thành");
 		this.step = 100;
 	}
 	else if(result == this.results.DESTROYED)
 	{
-		if(this.hud != null) this.hud.display("Destroyed");
+		if(this.hud != null) this.hud.display("Thất Bại");
 		this.step = 100;
 	}
 }

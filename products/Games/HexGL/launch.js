@@ -46,7 +46,7 @@
 
   defaultControls = bkcore.Utils.isTouchDevice() ? 1 : 0;
 
-  s = [['controlType', ['Bàn Phím', 'Chạm', 'Lắc Điện Thoại', 'Tay Cầm'], defaultControls, defaultControls, 'Điều Khiển: '], ['quality', ['Thấp', 'Trung Bình', 'Cao', 'Siêu Cao'], 3, 3, 'Chất Lượng Hình Ảnh: '], ['hud', ['Tắt', 'Mở'], 1, 1, 'Hoạt Ảnh HUD: '], ['godmode', ['Tắt', 'Mở'], 0, 1, 'Bất Tử: ']];
+  s = [['controlType', ['Bàn Phím', 'Chạm', 'Leap Motion', 'Tay Cầm'], defaultControls, defaultControls, 'Điều Khiển: '], ['quality', ['Thấp', 'Trung Bình', 'Cao', 'Siêu Cao'], 3, 3, 'Chất Lượng Hình Ảnh: '], ['hud', ['Tắt', 'Bật'], 1, 1, 'HUD: '], ['godmode', ['Tắt', 'Bật'], 0, 1, 'Bất Tử: ']];
 
   _fn = function(a) {
     var e, f, _ref;
