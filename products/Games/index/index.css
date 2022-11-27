@@ -83,6 +83,10 @@ h2:after {
   right: 0;
   background: #373d47;
 }
+.card{
+  background-color: transparent;
+}
+
 .cards,
 .news {
   flex-flow: row wrap;
@@ -210,6 +214,8 @@ h2:after {
   .show_mobile{display: block !important;}
   .df, .cards, .news {
     display: flex !important;
-    justify-content: space-around !important;
-}
+    justify-content: space-around !important;}
+  .cards .card, .news .card {
+      width: 140px !important;
+      height: 200px !important;}
 }
