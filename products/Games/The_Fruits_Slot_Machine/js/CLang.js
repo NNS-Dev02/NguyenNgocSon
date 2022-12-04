@@ -1,0 +1,20 @@
+TEXT_MONEY     = "TIỀN";
+TEXT_PLAY      = "CHƠI";
+TEXT_BET       = "TỔNG ĐẶT";
+TEXT_COIN      = "MỨC CƯỢC";
+TEXT_MAX_BET   = "SIÊU TỐC";
+TEXT_INFO      = "CÁCH CHƠI";
+TEXT_LINES     = "DÒNG";
+TEXT_SPIN      = "QUAY";
+TEXT_WIN       = "THẮNG!\n";
+TEXT_HELP_WILD = "BIỂU TƯỢNG NÀY cÓ THỂ THAY THẾ BẤT KỲ CÁC LOẠI KHÁC ĐỂ TẠO NÊN MỘT DÒNG COMBO";
+TEXT_CREDITS_DEVELOPED = "TRÒ CHƠI ĐƯỢC PHÁT TRIỂN BỞI";
+TEXT_CURRENCY = "0  VNĐ";
+TEXT_PRELOADER_CONTINUE = "BẮT ĐẦU";
+
+TEXT_SHARE_IMAGE = "200x200.png";
+TEXT_SHARE_TITLE = "Xin chúc mừng!";
+TEXT_SHARE_MSG1 = "Bạn đã thu thập <strong>";
+TEXT_SHARE_MSG2 = " điểm</strong>!<br><br>Chia sẻ điểm số của bạn với bạn bè của bạn!";
+TEXT_SHARE_SHARE1 = "Điểm số của tôi ";
+TEXT_SHARE_SHARE2 = " điểm! Bạn có thể làm tốt hơn không?";
