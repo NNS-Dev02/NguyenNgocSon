@@ -1,31 +1,31 @@
-var TEXT_CURRENCY = "$";
-var TEXT_PLAY = "PLAY";
-var TEXT_START = "START";
-var TEXT_SELECT_CARD = "SELECT CARDS";
-var TEXT_TOT_BET = "TOT BET";
+var TEXT_CURRENCY = "K";
+var TEXT_PLAY = "CHƠI";
+var TEXT_START = "BẮT ĐẦU";
+var TEXT_SELECT_CARD = "CỬA HÀNG";
+var TEXT_TOT_BET = "TỔNG TIỀN CƯỢC";
 var TEXT_PLUS = "+";
 var TEXT_MIN = "-";
-var TEXT_SELECT_NUM_CARDS = "NUM CARDS";
-var TEXT_SELECT_NUM_BALLS = "NUMBER TO EXTRACT";
-var TEXT_BUY_CARDS = "BUY CARDS";
+var TEXT_SELECT_NUM_CARDS = "SỐ LƯỢNG THẺ";
+var TEXT_SELECT_NUM_BALLS = "SỐ LƯỢNG SỐ";
+var TEXT_BUY_CARDS = "CỬA HÀNG";
 var TEXT_GAMEOVER = "YOU RUN OUT OF MONEY!!!";
-var TEXT_EXIT = "EXIT";
-var TEXT_PAYTABLE = "PAYTABLE";
-var TEXT_MONEY = "MONEY";
-var TEXT_COIN = "COIN";
-var TEXT_WIN = "WIN";
-var TEXT_ARE_SURE = "ARE YOU SURE?";
-var TEXT_YES = "YES";
-var TEXT_NO = "NO";
+var TEXT_EXIT = "THOÁT";
+var TEXT_PAYTABLE = "CÁCH TÍNH TIỀN KHI BINGO!";
+var TEXT_MONEY = "TIỀN CỦA BẠN";
+var TEXT_COIN = "MỨC CƯỢC";
+var TEXT_WIN = "THẮNG";
+var TEXT_ARE_SURE = "BẠN MUỐN THOÁT\nTRÒ CHƠI?";
+var TEXT_YES = "ĐÚNG";
+var TEXT_NO = "KHÔNG";
 
 var TEXT_PAYTABLE_PRIZES = [
-        "ANY LINE",
-        "ANY 2 LINES",
-        "FULL HOUSE"
+        "BINGO 1 HÀNG BẤT KỲ",
+        "BINGO 2 HÀNG BẤT KỲ",
+        "BINGO TẤT CẢ HÀNG"
         ];
 
-var TEXT_CONGRATULATIONS = "Congratulations!";
-var TEXT_SHARE_1 = "You collected <strong>" ;
-var TEXT_SHARE_2 = " points</strong>!<br><br>Share your score with your friends!";
-var TEXT_SHARE_3 = "My score is ";
-var TEXT_SHARE_4 = " points! Can you do better?";
+var TEXT_CONGRATULATIONS = "Xin Chúc Mừng!";
+var TEXT_SHARE_1 = "Bạn đã thu thập <strong>" ;
+var TEXT_SHARE_2 = " điểm</strong>!<br><br>Chia sẻ điểm số của bạn với bạn bè của bạn!";
+var TEXT_SHARE_3 = "Điểm số của bạn là ";
+var TEXT_SHARE_4 = " điểm! Bạn có thể làm tốt hơn không?";

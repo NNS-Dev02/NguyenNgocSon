@@ -13,7 +13,7 @@ function CAreYouSurePanel(oParentContainer){
         var oBg = createBitmap(s_oSpriteLibrary.getSprite('msg_box'));
         _oContainer.addChild(oBg); 
         
-        _oMsg = new createjs.Text(TEXT_ARE_SURE,"80px " +PRIMARY_FONT, "#fff");
+        _oMsg = new createjs.Text(TEXT_ARE_SURE,"60px " +PRIMARY_FONT, "#fff");
         _oMsg.x = CANVAS_WIDTH/2;
         _oMsg.y = 450 ;
         _oMsg.textAlign = "center";

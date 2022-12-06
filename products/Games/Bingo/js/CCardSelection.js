@@ -69,27 +69,27 @@ function CCardSelection(iMoney,oParentContainer){
         oMsgOutlineText.outline = 2;
         _oContainer.addChild(oMsgOutlineText);
         
-        _pStartPosMoney = {x:310,y:CANVAS_HEIGHT - 90};
-        _oMoneyText = new CDisplayText(_pStartPosMoney.x,_pStartPosMoney.y,s_oSpriteLibrary.getSprite('plus_display'),_iMoney+TEXT_CURRENCY,TEXT_MONEY,40,_oContainer);
+        _pStartPosMoney = {x:300,y:CANVAS_HEIGHT - 90};
+        _oMoneyText = new CDisplayText(_pStartPosMoney.x,_pStartPosMoney.y,s_oSpriteLibrary.getSprite('plus_display'),_iMoney+TEXT_CURRENCY,TEXT_MONEY,27,_oContainer);
 
-        _pStartPosCoin = {x:640,y:CANVAS_HEIGHT -90};
-        _oCoinText = new CDisplayText(_pStartPosCoin.x,_pStartPosCoin.y,s_oSpriteLibrary.getSprite('display_small'),COIN_BETS[_iCurCoinBet]+TEXT_CURRENCY,TEXT_COIN,37,_oContainer);
+        _pStartPosCoin = {x:650,y:CANVAS_HEIGHT -90};
+        _oCoinText = new CDisplayText(_pStartPosCoin.x,_pStartPosCoin.y,s_oSpriteLibrary.getSprite('display_small'),COIN_BETS[_iCurCoinBet],TEXT_COIN,37,_oContainer);
         
         var oSprite = s_oSpriteLibrary.getSprite('but_plus');
-        _pStartPosButCoin = {x:806,y:CANVAS_HEIGHT - 50};
+        _pStartPosButCoin = {x:815,y:CANVAS_HEIGHT - 50};
         _oButBetPlus = new CTextSpritesheetBut(_pStartPosButCoin.x,_pStartPosButCoin.y,oSprite,TEXT_PLUS,PRIMARY_FONT,"#ffffff",70, false, _oContainer);
         _oButBetPlus.enable();
         _oButBetPlus.addEventListener(ON_MOUSE_UP, this._onButBetPlusRelease, this);
 
         var oSprite = s_oSpriteLibrary.getSprite('but_plus');
-        _pStartPosButCoin = {x:596,y:CANVAS_HEIGHT - 50};
+        _pStartPosButCoin = {x:610,y:CANVAS_HEIGHT - 50};
         _oButBetMin = new CTextSpritesheetBut(_pStartPosButCoin.x,_pStartPosButCoin.y,oSprite,TEXT_MIN,PRIMARY_FONT,"#ffffff",70, false, _oContainer);
         _oButBetMin.disable();
         _oButBetMin.setScaleX(-1);
         _oButBetMin.addEventListener(ON_MOUSE_UP, this._onButBetMinRelease, this);
 
-        _pStartPosTotBet = {x:872,y:CANVAS_HEIGHT - 90};
-        _oTotBetText = new CDisplayText(_pStartPosTotBet.x,_pStartPosTotBet.y,s_oSpriteLibrary.getSprite('plus_display'),_iTotBet+TEXT_CURRENCY,TEXT_TOT_BET,40,_oContainer);
+        _pStartPosTotBet = {x:910,y:CANVAS_HEIGHT - 90};
+        _oTotBetText = new CDisplayText(_pStartPosTotBet.x,_pStartPosTotBet.y,s_oSpriteLibrary.getSprite('plus_display'),_iTotBet+TEXT_CURRENCY,TEXT_TOT_BET,27,_oContainer);
        
         var oSelectNumCardsText = new createjs.Text(TEXT_SELECT_NUM_CARDS," 34px " +PRIMARY_FONT, "#fff");
         oSelectNumCardsText.x = CANVAS_WIDTH/2 - 200;
@@ -220,7 +220,7 @@ function CCardSelection(iMoney,oParentContainer){
     };
     
     this._initCards = function(){
-        var oPaytableText = new createjs.Text(TEXT_PAYTABLE," 34px " +PRIMARY_FONT, "#ff7803");
+        var oPaytableText = new createjs.Text(TEXT_PAYTABLE," 25px " +PRIMARY_FONT, "#ff7803");
         oPaytableText.x = CANVAS_WIDTH/2 + 300;
         oPaytableText.y = 290;
         oPaytableText.textAlign = "center";
@@ -261,7 +261,7 @@ function CCardSelection(iMoney,oParentContainer){
     
     this._onButBetPlusRelease = function(){
         _iCurCoinBet++;
-        _oCoinText.changeText(TEXT_CURRENCY+COIN_BETS[_iCurCoinBet]);
+        _oCoinText.changeText(COIN_BETS[_iCurCoinBet]);
         _iTotBet = (COIN_BETS[_iCurCoinBet]/COIN_BETS[0]) * (STARTING_BET*_iNumCards);
         _oTotBetText.changeText(_iTotBet + TEXT_CURRENCY);
         
@@ -274,7 +274,7 @@ function CCardSelection(iMoney,oParentContainer){
     
     this._onButBetMinRelease = function(){
         _iCurCoinBet--;
-        _oCoinText.changeText(TEXT_CURRENCY+COIN_BETS[_iCurCoinBet]);
+        _oCoinText.changeText(COIN_BETS[_iCurCoinBet]);
         _iTotBet = (COIN_BETS[_iCurCoinBet]/COIN_BETS[0]) * (STARTING_BET*_iNumCards);
         _oTotBetText.changeText(_iTotBet + TEXT_CURRENCY);
         

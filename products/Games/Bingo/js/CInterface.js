@@ -67,24 +67,24 @@
             _oButFullscreen.addEventListener(ON_MOUSE_UP, this._onFullscreenRelease, this);
         }
         
-        _pStartPosMoney = {x:300,y:CANVAS_HEIGHT - 90};
-        _oMoneyText = new CDisplayText(_pStartPosMoney.x,_pStartPosMoney.y,s_oSpriteLibrary.getSprite('plus_display'),TEXT_CURRENCY +START_PLAYER_MONEY,TEXT_MONEY,40,s_oStage);
+        _pStartPosMoney = {x:100,y:CANVAS_HEIGHT - 90};
+        _oMoneyText = new CDisplayText(_pStartPosMoney.x,_pStartPosMoney.y,s_oSpriteLibrary.getSprite('plus_display'),TEXT_CURRENCY+START_PLAYER_MONEY,TEXT_MONEY,27,s_oStage);
         
-        _pStartPosTotBet = {x:530,y:CANVAS_HEIGHT - 90};
-        _oTotBetText = new CDisplayText(_pStartPosTotBet.x,_pStartPosTotBet.y,s_oSpriteLibrary.getSprite('plus_display'),"",TEXT_TOT_BET,40,s_oStage);
+        _pStartPosTotBet = {x:420,y:CANVAS_HEIGHT - 90};
+        _oTotBetText = new CDisplayText(_pStartPosTotBet.x,_pStartPosTotBet.y,s_oSpriteLibrary.getSprite('plus_display'),"",TEXT_TOT_BET,27,s_oStage);
         
-        _pStartPosCoin = {x:760,y:CANVAS_HEIGHT - 90};
+        _pStartPosCoin = {x:740,y:CANVAS_HEIGHT - 90};
         _oCoinText = new CDisplayText(_pStartPosCoin.x,_pStartPosCoin.y,s_oSpriteLibrary.getSprite('display_small'),"",TEXT_COIN,37,s_oStage);
         
-        _pStartPosWin = {x:894,y:CANVAS_HEIGHT - 90};
-        _oWinText = new CDisplayText(_pStartPosWin.x,_pStartPosWin.y,s_oSpriteLibrary.getSprite('plus_display'),"0"+TEXT_CURRENCY,TEXT_WIN,40,s_oStage);
+        _pStartPosWin = {x:940,y:CANVAS_HEIGHT - 90};
+        _oWinText = new CDisplayText(_pStartPosWin.x,_pStartPosWin.y,s_oSpriteLibrary.getSprite('plus_display'),"0"+TEXT_CURRENCY,TEXT_WIN,27,s_oStage);
 
-        _pStartPosPlay = {x:1530,y:CANVAS_HEIGHT-50};
-        _oButPlay = new CTextButton(_pStartPosPlay.x,_pStartPosPlay.y,s_oSpriteLibrary.getSprite('but_gui'),TEXT_START,PRIMARY_FONT,"#ffffff",50,BUTTON_Y_OFFSET,s_oStage);
+        _pStartPosPlay = {x:1580,y:CANVAS_HEIGHT-50};
+        _oButPlay = new CTextButton(_pStartPosPlay.x,_pStartPosPlay.y,s_oSpriteLibrary.getSprite('but_gui'),TEXT_START,PRIMARY_FONT,"#ffffff",30,BUTTON_Y_OFFSET,s_oStage);
         _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlay, this);
         
-        _pStartPosBuy = {x:1290,y:CANVAS_HEIGHT-50};
-        _oButBuyCards = new CTextButton(_pStartPosBuy.x,_pStartPosBuy.y,s_oSpriteLibrary.getSprite('but_gui'),TEXT_BUY_CARDS,PRIMARY_FONT,"#ffffff",36,BUTTON_Y_OFFSET,s_oStage);
+        _pStartPosBuy = {x:1340,y:CANVAS_HEIGHT-50};
+        _oButBuyCards = new CTextButton(_pStartPosBuy.x,_pStartPosBuy.y,s_oSpriteLibrary.getSprite('but_gui'),TEXT_BUY_CARDS,PRIMARY_FONT,"#ffffff",30,BUTTON_Y_OFFSET,s_oStage);
         _oButBuyCards.addEventListener(ON_MOUSE_UP, this._onButBuy, this);
         
         
@@ -132,7 +132,7 @@
     
     this.refreshTotBet = function(iTotBet,iCoin){
         _oTotBetText.changeText(iTotBet+TEXT_CURRENCY);
-        _oCoinText.changeText(iCoin+TEXT_CURRENCY);
+        _oCoinText.changeText(iCoin);
     };
     
     this.refreshWin = function(iWin){

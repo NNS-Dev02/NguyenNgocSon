@@ -8,12 +8,12 @@
  * 
  */
 var backgroundColour = '#fff'; //background colour
-var textCredit = 'CREDIT : [NUMBER]'; //credit text display
-var textPaid = 'PAID : [NUMBER]'; //paid text display
-var textWin = 'WIN : [NUMBER]'; //win text display
+var textCredit = 'Tiền: [NUMBER]'; //credit text display
+var textPaid = 'Tổng: [NUMBER]'; //paid text display
+var textWin = 'Thắng: [NUMBER]'; //win text display
 
 var gameCredit = 500; //game credit
-var gameTimer = 300000; //game timer
+var gameTimer = 600000; //game timer
 
 var betAreaColour = '#A7CD2C'; //bet area colour
 var betAreaHighlightColour = '#F7A21B'; //bet area highlight colour
@@ -911,11 +911,11 @@ function share(action){
 	var shareurl = '';
 	
 	if( action == 'twitter' ) {
-		shareurl = 'https://twitter.com/intent/tweet?url='+loc+'&text='+text;
+		shareurl = '#'
 	}else if( action == 'facebook' ){
-		shareurl = 'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(loc+'share.php?desc='+text+'&title='+title+'&url='+loc+'&thumb='+loc+'share.jpg&width=590&height=300');
+		shareurl = '#'
 	}else if( action == 'google' ){
-		shareurl = 'https://plus.google.com/share?url='+loc;
+		shareurl = '#'
 	}
 	
 	window.open(shareurl);

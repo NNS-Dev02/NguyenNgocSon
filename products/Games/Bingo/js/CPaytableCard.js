@@ -32,7 +32,7 @@ function CPaytableCard(iX,iY,iCellSize,iRows,oSpriteSheet,oParentContainer){
             iYPos += iCellSize*iScale;
         }
         
-        _oMsg = new createjs.Text(TEXT_PAYTABLE_PRIZES[iRows],"40px " +PRIMARY_FONT, "#fff");
+        _oMsg = new createjs.Text(TEXT_PAYTABLE_PRIZES[iRows],"25px " +PRIMARY_FONT, "#fff");
         _oMsg.x = (iCellSize*iScale*CARD_COLS)/2;
         _oMsg.y = iYPos + 30;
         _oMsg.textAlign = "center";
