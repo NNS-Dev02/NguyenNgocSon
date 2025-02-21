@@ -182,7 +182,7 @@ game.initUI = function()
 
 game.initPlayer = function()
 {
-	var coin = Number(this.params.coin) || 100;
+	var coin = Number(this.params.coin) || 500; //tiền mặc định
 	this.player = new ns.Player({id:"quark", coin:coin});
 };
 

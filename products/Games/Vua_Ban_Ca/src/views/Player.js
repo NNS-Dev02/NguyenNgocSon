@@ -89,10 +89,17 @@ Player.prototype.fire = function(targetPoint)
 	this.updateCoin(-power, true);
 }
 
+// Player.prototype.captureFish = function(fish)
+// {
+// 	this.updateCoin(fish.coin, true); // Không nhân giá trị cá với sức mạnh súng
+// 	this.numCapturedFishes++;
+// };
+
 Player.prototype.captureFish = function(fish)
 {
-	this.updateCoin(fish.coin, true);
-	this.numCapturedFishes++;
+    var totalCoin = fish.coin * this.cannon.power; // Nhân giá trị cá với sức mạnh súng
+    this.updateCoin(totalCoin, true);
+    this.numCapturedFishes++;
 };
 
 Player.prototype.updateCoin = function(coin, increase)

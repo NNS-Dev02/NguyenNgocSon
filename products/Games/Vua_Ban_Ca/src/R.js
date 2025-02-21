@@ -360,7 +360,7 @@ R.initResources = function()
 	{rect:[0,376,74,94], stop:1}
 	], mixin:{regX:37, regY:60, useFrames:true, interval:3, power:7}};
 	
-	this.fishTypes = [null, fish1, fish2, fish3, fish4, fish5, fish6, fish8, fish9, fish10, fish7, shark1, shark2];
+	this.fishTypes = [null, fish1, fish2, fish3, fish4, fish5, fish6, fish7, fish8, fish9, fish10, shark1, shark2];
 	this.cannonTypes = [null, cannon1, cannon2, cannon3, cannon4, cannon5, cannon6, cannon7];
 		
 	var bullet = this.getImage("bullet");

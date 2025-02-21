@@ -68,10 +68,40 @@ Fish.prototype.setDirection = function(dir)
 	this.speedY = this.speed * dir.sin;
 };
 
+// Fish.prototype.canBeCaptured = function(level)
+// {
+// 	return this.captureRate * (1 + level*0.05) > Math.random();
+// 	//súng càng mạnh thì càng dễ bắt
+// };
+
+// Fish.prototype.canBeCaptured = function(level)
+// {
+//     return this.captureRate * (1 + (7 - level) * 0.05) > Math.random();
+// 	//súng càng mạnh càng khó bắt
+// };
+
 Fish.prototype.canBeCaptured = function(level)
 {
-	return this.captureRate * (1 + level*0.05) > Math.random();
+    // Lấy sức mạnh của súng (power từ 1 đến 7)
+    var power = game.player.cannon.power;  
+
+    // Định nghĩa tỷ lệ bắt cá theo từng loại súng
+    var captureRates = {
+        1: 0.4,  // 40% trúng
+        2: 0.35, // 35% trúng
+        3: 0.3,  // 30% trúng
+        4: 0.25, // 25% trúng
+        5: 0.2,  // 20% trúng
+        6: 0.15, // 15% trúng
+        7: 0.1   // 10% trúng
+    };
+
+    // Xác suất bắt trúng theo sức mạnh của súng
+    var chance = captureRates[power] || 0.3; // Mặc định 30% nếu có lỗi
+
+    return Math.random() < chance;
 };
+
 
 Fish.prototype.update = function()
 {
@@ -88,7 +118,8 @@ Fish.prototype.update = function()
 			this.parent.addChild(coin);
 			
 			//coin count number
-			var value = "+" + this.coin.toString();
+			var totalCoin = this.coin * game.player.cannon.power; // Nhân với sức mạnh súng
+			var value = "+" + totalCoin.toString();
 			var num = new ns.Num({id:"coinCount", src:ns.R.coinText, max:value.length, gap:3, scaleX:0.8, scaleY:0.8});
 			num.x = this.x;
 			num.y = this.y;
