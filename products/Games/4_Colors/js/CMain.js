@@ -142,17 +142,10 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("but_p2","./sprites/but_p2.png");
         s_oSpriteLibrary.addSprite("but_p3","./sprites/but_p3.png");
         s_oSpriteLibrary.addSprite("but_p4","./sprites/but_p4.png");
-        // s_oSpriteLibrary.addSprite("but_red","./sprites/_oButRed.png");
-        // s_oSpriteLibrary.addSprite("but_green","./sprites/_oButGreen.png");
-        // s_oSpriteLibrary.addSprite("but_blue","./sprites/_oButBlue.png");
-        // s_oSpriteLibrary.addSprite("but_yellow","./sprites/_oButYellow.png");
-        s_oSpriteLibrary.addSprite("but_red", "https://nns-dev02.github.io/NguyenNgocSon/products/Games/4_Colors/sprites/_oButRed.png");
-        s_oSpriteLibrary.addSprite("but_green", "https://nns-dev02.github.io/NguyenNgocSon/products/Games/4_Colors/sprites/_oButGreen.png");
-        s_oSpriteLibrary.addSprite("but_blue", "https://nns-dev02.github.io/NguyenNgocSon/products/Games/4_Colors/sprites/_oButBlue.png");
-        s_oSpriteLibrary.addSprite("but_yellow", "https://nns-dev02.github.io/NguyenNgocSon/products/Games/4_Colors/sprites/_oButYellow.png");
-        
-
-        
+        s_oSpriteLibrary.addSprite("but_red","./sprites/ButRed.png");
+        s_oSpriteLibrary.addSprite("but_green","./sprites/ButGreen.png");
+        s_oSpriteLibrary.addSprite("but_blue","./sprites/ButBlue.png");
+        s_oSpriteLibrary.addSprite("but_yellow","./sprites/ButYellow.png")
         
         s_oSpriteLibrary.addSprite("stop_turn","./sprites/stop_turn.png");
         
