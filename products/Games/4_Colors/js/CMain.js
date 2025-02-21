@@ -142,10 +142,15 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("but_p2","./sprites/but_p2.png");
         s_oSpriteLibrary.addSprite("but_p3","./sprites/but_p3.png");
         s_oSpriteLibrary.addSprite("but_p4","./sprites/but_p4.png");
-        s_oSpriteLibrary.addSprite("but_red","./sprites/_oButRed.png");
-        s_oSpriteLibrary.addSprite("but_green","./sprites/_oButGreen.png");
-        s_oSpriteLibrary.addSprite("but_blue","./sprites/_oButBlue.png");
-        s_oSpriteLibrary.addSprite("but_yellow","./sprites/_oButYellow.png");
+        // s_oSpriteLibrary.addSprite("but_red","./sprites/_oButRed.png");
+        // s_oSpriteLibrary.addSprite("but_green","./sprites/_oButGreen.png");
+        // s_oSpriteLibrary.addSprite("but_blue","./sprites/_oButBlue.png");
+        // s_oSpriteLibrary.addSprite("but_yellow","./sprites/_oButYellow.png");
+        s_oSpriteLibrary.addSprite("but_red", "/NguyenNgocSon/products/Games/4_Colors/sprites/_oButRed.png");
+        s_oSpriteLibrary.addSprite("but_green", "/NguyenNgocSon/products/Games/4_Colors/sprites/_oButGreen.png");
+        s_oSpriteLibrary.addSprite("but_blue", "/NguyenNgocSon/products/Games/4_Colors/sprites/_oButBlue.png");
+        s_oSpriteLibrary.addSprite("but_yellow", "/NguyenNgocSon/products/Games/4_Colors/sprites/_oButYellow.png");
+
         
         
         s_oSpriteLibrary.addSprite("stop_turn","./sprites/stop_turn.png");
