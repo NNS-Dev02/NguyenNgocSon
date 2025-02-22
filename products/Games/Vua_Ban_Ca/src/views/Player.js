@@ -1,135 +1,135 @@
 
 (function(){
 
-var ns = Q.use("fish"), game = ns.game;
-
-var Player = ns.Player = function(props)
-{
-	this.id = null;
-	this.coin = 0;
-	this.numCapturedFishes = 0;
+	var ns = Q.use("fish"), game = ns.game;
 	
-	this.cannon = null;
-	this.cannonMinus = null;
-	this.cannonPlus = null;
-	this.coinNum = null;
-	
-	props = props || {};
-	Q.merge(this, props, true);
-	
-	this.init();
-};
-
-Player.prototype.init = function()
-{
-	var me = this, power = 1;
-	
-	this.cannon = new ns.Cannon(ns.R.cannonTypes[power]);
-	this.cannon.id = "cannon";
-	this.cannon.x = game.bottom.x + 425;
-	this.cannon.y = game.bottom.y + 60;
-	this.cannon.y = game.height - 10;
-	
-	this.cannonMinus = new Q.Button(ns.R.cannonMinus);
-	this.cannonMinus.id = "cannonMinus";
-	this.cannonMinus.x = game.bottom.x + 340;
-	this.cannonMinus.y = game.bottom.y + 36;
-	this.cannonMinus.onEvent = function(e)
+	var Player = ns.Player = function(props)
 	{
-		if(e.type == game.events[1])
-		{
-			me.cannon.setPower(-1, true);
-		}
+		this.id = null;
+		this.coin = 0;
+		this.numCapturedFishes = 0;
+		
+		this.cannon = null;
+		this.cannonMinus = null;
+		this.cannonPlus = null;
+		this.coinNum = null;
+		
+		props = props || {};
+		Q.merge(this, props, true);
+		
+		this.init();
 	};
 	
-	this.cannonPlus = new Q.Button(ns.R.cannonPlus);
-	this.cannonPlus.id = "cannonPlus";
-	this.cannonPlus.x = this.cannonMinus.x + 140;
-	this.cannonPlus.y = this.cannonMinus.y;
-	this.cannonPlus.onEvent = function(e)
+	Player.prototype.init = function()
 	{
-		if(e.type == game.events[1])
+		var me = this, power = 1;
+		
+		this.cannon = new ns.Cannon(ns.R.cannonTypes[power]);
+		this.cannon.id = "cannon";
+		this.cannon.x = game.bottom.x + 425;
+		this.cannon.y = game.bottom.y + 60;
+		this.cannon.y = game.height - 10;
+		
+		this.cannonMinus = new Q.Button(ns.R.cannonMinus);
+		this.cannonMinus.id = "cannonMinus";
+		this.cannonMinus.x = game.bottom.x + 340;
+		this.cannonMinus.y = game.bottom.y + 36;
+		this.cannonMinus.onEvent = function(e)
 		{
-			me.cannon.setPower(1, true);
-		}
+			if(e.type == game.events[1])
+			{
+				me.cannon.setPower(-1, true);
+			}
+		};
+		
+		this.cannonPlus = new Q.Button(ns.R.cannonPlus);
+		this.cannonPlus.id = "cannonPlus";
+		this.cannonPlus.x = this.cannonMinus.x + 140;
+		this.cannonPlus.y = this.cannonMinus.y;
+		this.cannonPlus.onEvent = function(e)
+		{
+			if(e.type == game.events[1])
+			{
+				me.cannon.setPower(1, true);
+			}
+		};
+		
+		this.coinNum = new ns.Num({id:"coinNum", src:ns.R.numBlack, max:6, gap:3, autoAddZero:true});
+		this.coinNum.x = game.bottom.x + 20;
+		this.coinNum.y = game.bottom.y + 44;
+		this.updateCoin(this.coin);
+		
+		game.stage.addChild(this.cannon, this.cannonMinus, this.cannonPlus, this.coinNum);
 	};
 	
-	this.coinNum = new ns.Num({id:"coinNum", src:ns.R.numBlack, max:6, gap:3, autoAddZero:true});
-	this.coinNum.x = game.bottom.x + 20;
-	this.coinNum.y = game.bottom.y + 44;
-	this.updateCoin(this.coin);
+	Player.prototype.fire = function(targetPoint)
+	{	
+		var cannon = this.cannon, power = cannon.power, speed = 7;
+		if(this.coin < power) return;
+		
+		// Phát âm thanh bắn súng
+		var fireSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/fire.mp3");
+		fireSound.volume = 0.2; // Điều chỉnh âm lượng nếu cần
+		fireSound.play();
 	
-	game.stage.addChild(this.cannon, this.cannonMinus, this.cannonPlus, this.coinNum);
-};
-
-Player.prototype.fire = function(targetPoint)
-{	
-	var cannon = this.cannon, power = cannon.power, speed = 7;
-	if(this.coin < power) return;
+		// Tiếp tục logic bắn đạn
+		var dir = ns.Utils.calcDirection(cannon, targetPoint);
+		var degree = dir.degree;
 	
-    // Phát âm thanh bắn súng
-    var fireSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/fire.mp3");
-    fireSound.volume = 0.2; // Điều chỉnh âm lượng nếu cần
-    fireSound.play();
-
-    // Tiếp tục logic bắn đạn
-    var dir = ns.Utils.calcDirection(cannon, targetPoint);
-    var degree = dir.degree;
-
-	//cannon fire
-	var dir = ns.Utils.calcDirection(cannon, targetPoint), degree = dir.degree;
-	if(degree == -90) degree = 0;
-	else if(degree < 0 && degree > -90) degree = -degree;
-	else if(degree >= 180 && degree <= 270) degree = 180 - degree;
-	cannon.fire(degree);
+		//cannon fire
+		var dir = ns.Utils.calcDirection(cannon, targetPoint), degree = dir.degree;
+		if(degree == -90) degree = 0;
+		else if(degree < 0 && degree > -90) degree = -degree;
+		else if(degree >= 180 && degree <= 270) degree = 180 - degree;
+		cannon.fire(degree);
+		
+		//fire a bullet
+		var sin = Math.sin(degree*Q.DEG_TO_RAD), cos = Math.cos(degree*Q.DEG_TO_RAD);
+		var bullet = new ns.Bullet(ns.R.bullets[power - 1]);
+		bullet.x = cannon.x + (cannon.regY + 20) * sin;
+		bullet.y = cannon.y - (cannon.regY + 20) * cos;
+		bullet.rotation = degree;
+		bullet.power = power;
+		bullet.speedX = speed * sin;
+		bullet.speedY = speed * cos;
+		game.stage.addChild(bullet);
+		
+		//deduct coin
+		this.updateCoin(-power, true);
+	}
 	
-	//fire a bullet
-	var sin = Math.sin(degree*Q.DEG_TO_RAD), cos = Math.cos(degree*Q.DEG_TO_RAD);
-	var bullet = new ns.Bullet(ns.R.bullets[power - 1]);
-	bullet.x = cannon.x + (cannon.regY + 20) * sin;
-	bullet.y = cannon.y - (cannon.regY + 20) * cos;
-	bullet.rotation = degree;
-	bullet.power = power;
-	bullet.speedX = speed * sin;
-	bullet.speedY = speed * cos;
-	game.stage.addChild(bullet);
+	// Player.prototype.captureFish = function(fish)
+	// {
+	// 	this.updateCoin(fish.coin, true); // Không nhân giá trị cá với sức mạnh súng
+	// 	this.numCapturedFishes++;
+	// };
 	
-	//deduct coin
-	this.updateCoin(-power, true);
-}
-
-// Player.prototype.captureFish = function(fish)
-// {
-// 	this.updateCoin(fish.coin, true); // Không nhân giá trị cá với sức mạnh súng
-// 	this.numCapturedFishes++;
-// };
-
-Player.prototype.captureFish = function(fish)
-{
-    var totalCoin = fish.coin * this.cannon.power; // Nhân giá trị cá với sức mạnh súng
-    this.updateCoin(totalCoin, true);
-    this.numCapturedFishes++;
-
-	// Phát âm thanh thu hoạch cá
-    var catchSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/catch.mp3");
-    catchSound.volume = 0.5; // Giảm âm lượng xuống 50%
-    catchSound.play();
-};
-
-Player.prototype.updateCoin = function(coin, increase)
-{
-	if(increase) this.coin += coin;
-	else this.coin = coin;
-	if(this.coin > 999999) this.coin = 999999;
-	this.coinNum.setValue(this.coin);
-};
-
-Player.prototype.startCoinIncrement = function() {
-    var me = this;
-    setInterval(function() {
-        me.updateCoin(1, true); // Cộng thêm 1 coin mỗi giây
-    }, 1000);
-};
-
-
-})();
+	Player.prototype.captureFish = function(fish)
+	{
+		var totalCoin = fish.coin * this.cannon.power; // Nhân giá trị cá với sức mạnh súng
+		this.updateCoin(totalCoin, true);
+		this.numCapturedFishes++;
+	
+		// Phát âm thanh thu hoạch cá
+		var catchSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/catch.mp3");
+		catchSound.volume = 0.5; // Giảm âm lượng xuống 50%
+		catchSound.play();
+	};
+	
+	Player.prototype.updateCoin = function(coin, increase)
+	{
+		if(increase) this.coin += coin;
+		else this.coin = coin;
+		if(this.coin > 999999) this.coin = 999999;
+		this.coinNum.setValue(this.coin);
+	};
+	
+	Player.prototype.startCoinIncrement = function() {
+		var me = this;
+		setInterval(function() {
+			me.updateCoin(1, true); // Cộng thêm 1 coin mỗi giây
+		}, 1000);
+	};
+	
+	
+	})();
