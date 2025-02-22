@@ -67,6 +67,15 @@ Player.prototype.fire = function(targetPoint)
 	var cannon = this.cannon, power = cannon.power, speed = 7;
 	if(this.coin < power) return;
 	
+    // Phát âm thanh bắn súng
+    var fireSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/fire.mp3");
+    fireSound.volume = 0.2; // Điều chỉnh âm lượng nếu cần
+    fireSound.play();
+
+    // Tiếp tục logic bắn đạn
+    var dir = ns.Utils.calcDirection(cannon, targetPoint);
+    var degree = dir.degree;
+
 	//cannon fire
 	var dir = ns.Utils.calcDirection(cannon, targetPoint), degree = dir.degree;
 	if(degree == -90) degree = 0;
@@ -100,6 +109,11 @@ Player.prototype.captureFish = function(fish)
     var totalCoin = fish.coin * this.cannon.power; // Nhân giá trị cá với sức mạnh súng
     this.updateCoin(totalCoin, true);
     this.numCapturedFishes++;
+
+	// Phát âm thanh thu hoạch cá
+    var catchSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/catch.mp3");
+    catchSound.volume = 0.5; // Giảm âm lượng xuống 50%
+    catchSound.play();
 };
 
 Player.prototype.updateCoin = function(coin, increase)
@@ -109,5 +123,13 @@ Player.prototype.updateCoin = function(coin, increase)
 	if(this.coin > 999999) this.coin = 999999;
 	this.coinNum.setValue(this.coin);
 };
+
+Player.prototype.startCoinIncrement = function() {
+    var me = this;
+    setInterval(function() {
+        me.updateCoin(1, true); // Cộng thêm 1 coin mỗi giây
+    }, 1000);
+};
+
 
 })();

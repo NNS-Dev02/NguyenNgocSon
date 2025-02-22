@@ -82,22 +82,21 @@ Fish.prototype.setDirection = function(dir)
 
 Fish.prototype.canBeCaptured = function(level)
 {
-    // Lấy sức mạnh của súng (power từ 1 đến 7)
     var power = game.player.cannon.power;  
 
-    // Định nghĩa tỷ lệ bắt cá theo từng loại súng
+    // Tỷ lệ bắt cá dựa trên sức mạnh súng
     var captureRates = {
-        1: 0.4,  // 40% trúng
-        2: 0.35, // 35% trúng
-        3: 0.3,  // 30% trúng
-        4: 0.25, // 25% trúng
-        5: 0.2,  // 20% trúng
-        6: 0.15, // 15% trúng
-        7: 0.1   // 10% trúng
+        1: 0.7,  // Giảm 30% so với xác suất gốc
+        2: 0.6,  // Giảm 40% so với xác suất gốc
+        3: 0.5,  // Giảm 50% so với xác suất gốc
+        4: 0.4,  // Giảm 60% so với xác suất gốc
+        5: 0.3,  // Giảm 70% so với xác suất gốc
+        6: 0.2,  // Giảm 80% so với xác suất gốc
+        7: 0.1   // Giảm 90% so với xác suất gốc
     };
 
-    // Xác suất bắt trúng theo sức mạnh của súng
-    var chance = captureRates[power] || 0.3; // Mặc định 30% nếu có lỗi
+    var chance = Math.max((this.captureRate || 0.3) * (captureRates[power] || 0.3), 0.01);
+
 
     return Math.random() < chance;
 };

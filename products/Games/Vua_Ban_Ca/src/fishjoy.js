@@ -25,6 +25,22 @@ var game = ns.game =
 	fireCount: 0
 };
 
+game.initAudio = function() {
+    this.bgMusic = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/bg-music.mp3");
+    this.bgMusic.loop = true;
+    this.bgMusic.volume = 1;
+
+    var playMusic = () => {
+        this.bgMusic.play().catch(error => {
+            console.log("Trình duyệt chặn tự động phát nhạc. Chờ người dùng click!", error);
+        });
+        document.body.removeEventListener("click", playMusic); // Chỉ gọi 1 lần
+    };
+
+    document.body.addEventListener("click", playMusic); // Chờ người dùng click để phát nhạc
+};
+
+
 game.load = function(container)
 {	
 	
@@ -110,6 +126,8 @@ game.init = function(images)
 
 game.startup = function()
 {
+	this.initAudio(); // Bắt đầu phát nhạc nền
+
 	var me = this;
 	this.container.removeChild(this.loader);
 	this.loader = null;
@@ -182,8 +200,9 @@ game.initUI = function()
 
 game.initPlayer = function()
 {
-	var coin = Number(this.params.coin) || 500; //tiền mặc định
-	this.player = new ns.Player({id:"quark", coin:coin});
+	var coin = Number(this.params.coin) || 1000; // Tiền mặc định
+    this.player = new ns.Player({ id: "quark", coin: coin });
+    this.player.startCoinIncrement(); // Gọi hàm tăng coin mỗi giây
 };
 
 game.update = function(timeInfo)

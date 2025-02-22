@@ -278,7 +278,7 @@ R.initResources = function()
 	{rect:[0,2700,509,270]},
 	{rect:[0,2970,509,270], jump:"capture"}
 	], polyArea:[{x:20, y:50}, {x:500, y:50}, {x:500, y:220}, {x:20, y:210}], 
-	mixin:{coin:100, captureRate:0.05, maxNumGroup:1, minSpeed:0.5, maxSpeed:0.6, regX:350, regY:130, useFrames:true, interval:10}};
+	mixin:{coin:100, captureRate:0.05, maxNumGroup:2, minSpeed:0.5, maxSpeed:0.6, regX:350, regY:130, useFrames:true, interval:10}};
 	
 	var shark2 = {image:this.getImage("shark2"), 
 	frames:[
@@ -295,7 +295,7 @@ R.initResources = function()
 	{rect:[0,2730,516,273]},
 	{rect:[0,3003,516,273], jump:"capture"}
 	], polyArea:[{x:20, y:50}, {x:500, y:50}, {x:500, y:220}, {x:20, y:210}],
-	mixin:{coin:200, captureRate:0.02, maxNumGroup:1, minSpeed:0.5, maxSpeed:0.6, regX:350, regY:130, useFrames:true, interval:10}};
+	mixin:{coin:500, captureRate:0.01, maxNumGroup:1, minSpeed:0.5, maxSpeed:0.6, regX:350, regY:130, useFrames:true, interval:10}};
 	
 	var cannon1 = {image:this.getImage("cannon1"),
 	frames:[
