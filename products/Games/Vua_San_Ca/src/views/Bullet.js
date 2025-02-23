@@ -14,18 +14,44 @@ var Bullet = ns.Bullet = function(props)
 };
 Q.inherit(Bullet, Q.Bitmap);
 
-Bullet.prototype.update = function(timeInfo)
-{	
-	if(this.isOutOfScreen())
-	{
-		this.destory();
-	}else
-	{
-		this.x += this.speedX;
-		this.y -= this.speedY;	
-		if(this.checkCollision()) this.destory();
-	}
+// Bullet.prototype.update = function(timeInfo)
+// {	
+// 	if(this.isOutOfScreen())
+// 	{
+// 		this.destory();
+// 	}else
+// 	{
+// 		this.x += this.speedX;
+// 		this.y -= this.speedY;	
+// 		if(this.checkCollision()) this.destory();
+// 	}
+// };
+
+Bullet.prototype.update = function(timeInfo) {    
+    this.x += this.speedX;
+    this.y -= this.speedY;    
+
+    // Nếu đã nâng cấp "Đạn quay ngược lại"
+    if (game.bounceBullets) {
+        if (this.x < 0 || this.x > game.width) {
+            this.speedX = -this.speedX; // Đảo hướng ngang
+            this.rotation = 360 - this.rotation; // Phản xạ theo mép dọc
+        }
+        if (this.y < 0 || this.y > game.height) {
+            this.speedY = -this.speedY; // Đảo hướng dọc
+            this.rotation = 180 - this.rotation; // Phản xạ theo mép ngang
+        }
+    } else {
+        // Nếu không có nâng cấp, xử lý bình thường
+        if (this.isOutOfScreen()) {
+            this.destory();
+            return;
+        }
+    }
+
+    if (this.checkCollision()) this.destory();
 };
+
 
 Bullet.prototype.checkCollision = function()
 {	

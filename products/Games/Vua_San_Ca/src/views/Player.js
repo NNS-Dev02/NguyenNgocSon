@@ -80,8 +80,8 @@
 		}
 	
 		// Phát âm thanh bắn súng
-		var fireSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/fire.mp3");
-		fireSound.volume = 0.2;
+		var fireSound = new Audio("/NguyenNgocSon/products/Games/Vua_San_Ca/sounds/fire.mp3");
+		fireSound.volume = 0.1;
 		fireSound.play();
 	
 		// Tính toán hướng bắn
@@ -141,8 +141,8 @@
 		this.numCapturedFishes++;
 	
 		// Phát âm thanh thu hoạch cá
-		var catchSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/catch.mp3");
-		catchSound.volume = 0.5; // Giảm âm lượng xuống 50%
+		var catchSound = new Audio("/NguyenNgocSon/products/Games/Vua_San_Ca/sounds/catch.mp3");
+		catchSound.volume = 0.3; // Giảm âm lượng xuống 50%
 		catchSound.play();
 	};
 	

@@ -26,9 +26,9 @@ var game = ns.game =
 };
 
 game.initAudio = function() {
-    this.bgMusic = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/bg-music.mp3");
+    this.bgMusic = new Audio("/NguyenNgocSon/products/Games/Vua_San_Ca/sounds/bg-music.mp3");
     this.bgMusic.loop = true;
-    this.bgMusic.volume = 1;
+    this.bgMusic.volume = 0.3;
 
     var playMusic = () => {
         this.bgMusic.play().catch(error => {
@@ -201,7 +201,7 @@ game.initUI = function()
 
 game.initPlayer = function()
 {
-	var coin = Number(this.params.coin) || 1000; // Tiền mặc định
+	var coin = Number(this.params.coin) || 500; // Tiền mặc định
     this.player = new ns.Player({ id: "quark", coin: coin });
     this.player.startCoinIncrement(); // Gọi hàm tăng coin mỗi giây
 };
