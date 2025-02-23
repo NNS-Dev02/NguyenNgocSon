@@ -22,6 +22,9 @@
 	
 	Player.prototype.init = function()
 	{
+   	 	this.extraBullets = 0; // Số viên đạn thêm (mặc định là 0)
+   	 	this.fireRateMultiplier = 1; // Hệ số tốc độ bắn (mặc định là 1)
+
 		var me = this, power = 1;
 		
 		this.cannon = new ns.Cannon(ns.R.cannonTypes[power]);
@@ -62,41 +65,68 @@
 		game.stage.addChild(this.cannon, this.cannonMinus, this.cannonPlus, this.coinNum);
 	};
 	
-	Player.prototype.fire = function(targetPoint)
-	{	
+	Player.prototype.fire = function(targetPoint) {    
 		var cannon = this.cannon, power = cannon.power, speed = 7;
-		if(this.coin < power) return;
-		
+	
+		// Lấy số viên đạn dựa trên nâng cấp (1, 3 hoặc 5)
+		var numBullets = 1 + (this.extraBullets || 0);  
+		var totalCost = power * numBullets; // Trừ vàng tương ứng
+	
+		console.log("🎯 Số đạn hiện tại:", numBullets); // Debug để kiểm tra
+	
+		if (this.coin < totalCost) {
+			console.log("⚠ Không đủ vàng để bắn!");
+			return;
+		}
+	
 		// Phát âm thanh bắn súng
 		var fireSound = new Audio("/NguyenNgocSon/products/Games/Vua_Ban_Ca/sounds/fire.mp3");
-		fireSound.volume = 0.2; // Điều chỉnh âm lượng nếu cần
+		fireSound.volume = 0.2;
 		fireSound.play();
 	
-		// Tiếp tục logic bắn đạn
-		var dir = ns.Utils.calcDirection(cannon, targetPoint);
-		var degree = dir.degree;
+		// Tính toán hướng bắn
+		var baseDir = ns.Utils.calcDirection(cannon, targetPoint);
+		var baseDegree = baseDir.degree;
 	
-		//cannon fire
-		var dir = ns.Utils.calcDirection(cannon, targetPoint), degree = dir.degree;
-		if(degree == -90) degree = 0;
-		else if(degree < 0 && degree > -90) degree = -degree;
-		else if(degree >= 180 && degree <= 270) degree = 180 - degree;
-		cannon.fire(degree);
-		
-		//fire a bullet
-		var sin = Math.sin(degree*Q.DEG_TO_RAD), cos = Math.cos(degree*Q.DEG_TO_RAD);
-		var bullet = new ns.Bullet(ns.R.bullets[power - 1]);
-		bullet.x = cannon.x + (cannon.regY + 20) * sin;
-		bullet.y = cannon.y - (cannon.regY + 20) * cos;
-		bullet.rotation = degree;
-		bullet.power = power;
-		bullet.speedX = speed * sin;
-		bullet.speedY = speed * cos;
-		game.stage.addChild(bullet);
-		
-		//deduct coin
-		this.updateCoin(-power, true);
-	}
+		// Điều chỉnh góc bắn
+		if (baseDegree == -90) baseDegree = 0;
+		else if (baseDegree < 0 && baseDegree > -90) baseDegree = -baseDegree;
+		else if (baseDegree >= 180 && baseDegree <= 270) baseDegree = 180 - baseDegree;
+	
+		cannon.fire(baseDegree);
+	
+		// Tạo góc lệch cho đạn
+		var angleOffset = 10; // Mỗi viên đạn cách nhau 10 độ
+		var angles = [];
+		for (var i = 0; i < numBullets; i++) {
+			var offset = (i - (numBullets - 1) / 2) * angleOffset;
+			angles.push(baseDegree + offset);
+		}
+	
+		// Bắn nhiều viên đạn
+		for (var i = 0; i < angles.length; i++) {
+			var degree = angles[i]; 
+			var radian = degree * Q.DEG_TO_RAD;
+			var sin = Math.sin(radian);
+			var cos = Math.cos(radian);
+	
+			var bullet = new ns.Bullet(ns.R.bullets[power - 1]);
+			bullet.x = cannon.x + (cannon.regY + 20) * sin;
+			bullet.y = cannon.y - (cannon.regY + 20) * cos;
+			bullet.rotation = degree;
+			bullet.power = power;
+			bullet.speedX = speed * sin;
+			bullet.speedY = speed * cos;
+	
+			game.stage.addChild(bullet);
+		}
+	
+		// Trừ số vàng đúng với số lượng đạn bắn ra
+		this.updateCoin(-totalCost, true);
+	};
+	
+	
+	
 	
 	// Player.prototype.captureFish = function(fish)
 	// {

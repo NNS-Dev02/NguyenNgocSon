@@ -122,6 +122,7 @@ game.init = function(images)
 {
 	ns.R.init(images);
 	this.startup();
+	window.game = this; // Cho phép truy cập `game` từ mọi nơi
 };
 
 game.startup = function()
