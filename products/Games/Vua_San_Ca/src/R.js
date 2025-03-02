@@ -278,7 +278,7 @@ R.initResources = function()
 	{rect:[0,2700,509,270]},
 	{rect:[0,2970,509,270], jump:"capture"}
 	], polyArea:[{x:20, y:50}, {x:500, y:50}, {x:500, y:220}, {x:20, y:210}], 
-	mixin:{coin:100, captureRate:0.05, maxNumGroup:2, minSpeed:0.5, maxSpeed:0.6, regX:350, regY:130, useFrames:true, interval:10}};
+	mixin:{coin:100, captureRate:0.05, maxNumGroup:1, minSpeed:0.5, maxSpeed:0.6, regX:350, regY:130, useFrames:true, interval:10}};
 	
 	var shark2 = {image:this.getImage("shark2"), 
 	frames:[

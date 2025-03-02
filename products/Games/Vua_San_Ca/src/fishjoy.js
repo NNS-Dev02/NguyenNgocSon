@@ -201,7 +201,7 @@ game.initUI = function()
 
 game.initPlayer = function()
 {
-	var coin = Number(this.params.coin) || 500; // Tiền mặc định
+	var coin = Number(this.params.coin) || 50000; // Tiền mặc định
     this.player = new ns.Player({ id: "quark", coin: coin });
     this.player.startCoinIncrement(); // Gọi hàm tăng coin mỗi giây
 };
